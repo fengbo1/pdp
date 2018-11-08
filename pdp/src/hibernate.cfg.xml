@@ -36,7 +36,12 @@
 		<!--每60秒检查所有连接池中的空闲连接。Default: 0 -->
 		<property name="c3p0.idle_test_period">60</property><!-- seconds -->
 		<mapping resource="pdp/userinfo/pojo/UserInfo.hbm.xml" />
-		
+		<mapping resource="pdp/userinfo/pojo/UserPos.hbm.xml" />
+		<mapping resource="pdp/score/pojo/Score.hbm.xml" />
+		<mapping resource="pdp/pos/pojo/Position.hbm.xml" />
+		<mapping resource="pdp/norm/pojo/Norm.hbm.xml" />
+		<mapping resource="pdp/flag/pojo/Flag.hbm.xml" />
+
 
 	</session-factory>
 
