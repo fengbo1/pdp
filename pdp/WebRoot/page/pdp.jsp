@@ -70,25 +70,29 @@ function frame(o)
 	{
 		document.getElementById("frame").src="<%=path%>/query.action";
 	}
+	else if(obj=="queryhis")
+	{
+		document.getElementById("frame").src="<%=path%>/queryhis.action";
+	}
 	else if(obj=="mng")
 	{
 		document.getElementById("frame").src="<%=path%>/beforemng.action";
 	}
 	else if(obj=="norma")
 	{
-		document.getElementById("frame").src="<%=path%>/norma.action";
+		document.getElementById("frame").src="<%=path%>/normquery.action?type=norma";
 	}
 	else if(obj=="normb")
 	{
-		document.getElementById("frame").src="<%=path%>/normb.action";
+		document.getElementById("frame").src="<%=path%>/normquery.action?type=normb";
 	}
 	else if(obj=="normc")
 	{
-		document.getElementById("frame").src="<%=path%>/normc.action";
+		document.getElementById("frame").src="<%=path%>/normquery.action?type=normc";
 	}
 	else if(obj=="normd")
 	{
-		document.getElementById("frame").src="<%=path%>/normd.action";
+		document.getElementById("frame").src="<%=path%>/normquery.action?type=normd";
 	}
 	else if(obj=="pos")
 	{
@@ -181,10 +185,18 @@ $(document).ready(function(){
 							</li>
 							<li class="a">
 								<div class="header">
-									<span class="label">考核查询</span>
+									<span class="label">查看评分</span>
 								</div>
 								<ul class="menu1">
-									<li class="cc"  onclick="frame('query')">考核查询</li>
+									<li class="cc"  onclick="frame('query')">查看评分</li>
+								</ul>
+							</li>
+							<li class="a">
+								<div class="header">
+									<span class="label">考核结果</span>
+								</div>
+								<ul class="menu1">
+									<li class="cc"  onclick="frame('queryhis')">考核结果</li>
 								</ul>
 							</li>
 							<li class="a">
@@ -227,7 +239,7 @@ $(document).ready(function(){
 									<span class="label">数据导入</span>
 								</div>
 								<ul class="menu1">
-									<li class="cc"  onclick="frame('dataimport')">KPI得分导入</li>
+									<li class="cc"  onclick="frame('dataimport')">数据导入</li>
 								</ul>
 							</li>
 						</ul>

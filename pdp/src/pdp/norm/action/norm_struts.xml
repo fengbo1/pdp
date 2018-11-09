@@ -5,6 +5,11 @@
 <struts>
 	
 	<package name="norm_default" extends="struts-default" >
-		
+		<action name="normquery" class="pdp.norm.action.NormAction">
+			<result name="success">/page/norm/norm.jsp</result>
+		</action>
+		<action name="beforenormadd" class="pdp.norm.action.BeforeNormAdd">
+			<result name="success">/page/norm/normadd.jsp</result>
+		</action>
 	</package>
 </struts>    

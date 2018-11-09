@@ -7,6 +7,14 @@
     <tlib-version>1.0</tlib-version>
     <short-name>util</short-name>
     <uri>http://template.fb.com/article/taglib</uri>
+    
+    <function>
+       <description>normTypeToName</description>
+        <name>normtypetoname</name>
+		<function-class>pdp.util.Util</function-class>
+		<function-signature>java.lang.String NormToString( java.lang.String)</function-signature>
+    </function>
+    
     <!-- 
 	<function>
         <description>positionToChu</description>
