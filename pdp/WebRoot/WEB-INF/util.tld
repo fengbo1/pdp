@@ -14,7 +14,12 @@
 		<function-class>pdp.util.Util</function-class>
 		<function-signature>java.lang.String NormToString( java.lang.String)</function-signature>
     </function>
-    
+    <function>
+       <description>chuToString</description>
+        <name>chutostring</name>
+		<function-class>pdp.util.Util</function-class>
+		<function-signature>java.lang.String ChuToString( java.lang.String)</function-signature>
+    </function>
     <!-- 
 	<function>
         <description>positionToChu</description>

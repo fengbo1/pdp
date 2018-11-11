@@ -8,5 +8,31 @@
 		<action name="posquery" class="pdp.pos.action.PosAction">
 			<result name="success">/page/position/poslist.jsp</result>
 		</action>
+		<action name="posadd" class="pdp.pos.action.PosAdd">
+			<result name="success">/page/position/posadda.jsp</result>
+			<result name="failed">/page/position/posadd.jsp</result>
+		</action>
+		<action name="posadda" class="pdp.pos.action.PosAddA">
+			<result name="success">/page/position/posaddb.jsp</result>
+			<result name="failed">/page/position/posadda.jsp</result>
+		</action>
+		<action name="posaddb" class="pdp.pos.action.PosAddB">
+			<result name="success">/page/position/posaddc.jsp</result>
+			<result name="failed">/page/position/posaddb.jsp</result>
+		</action>
+		<action name="posaddc" class="pdp.pos.action.PosAddC">
+			<result name="success">/page/position/poslist.jsp</result>
+			<result name="failed">/page/position/posaddc.jsp</result>
+		</action>
+		<action name="posdel" class="pdp.pos.action.PosDel">
+			<result name="success">/page/position/possuccess.jsp</result>
+		</action>
+		<action name="postoupdate" class="pdp.pos.action.PosToUpdate">
+			<result name="success">/page/position/posupdate.jsp</result>
+		</action>
+		<action name="beforeposadd" class="pdp.pos.action.BeforePosAdd">
+			<result name="success">/page/position/posadd.jsp</result>
+		</action>
 	</package>
+	
 </struts>    

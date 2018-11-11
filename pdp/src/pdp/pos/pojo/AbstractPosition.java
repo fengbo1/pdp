@@ -16,18 +16,19 @@ public abstract class AbstractPosition  implements java.io.Serializable {
      private String name;
      private String chu;
      private String tuan;
-     private String kpinorma;
-     private String kpinormpropa;
-     private String ktinormb;
-     private String ktinormpropb;
-     private String kcinormc;
-     private String kcinormpropc;
-     private String kcinormd;
-     private String kcinormpropd;
+     private String norma;
+     private String normpropa;
+     private String normb;
+     private String normpropb;
+     private String normc;
+     private String normpropc;
+     private String normd;
+     private String normpropd;
      private Double propa;
      private Double propb;
      private Double propc;
      private Double propd;
+     private Integer status;
 
 
     // Constructors
@@ -38,22 +39,23 @@ public abstract class AbstractPosition  implements java.io.Serializable {
 
     
     /** full constructor */
-    public AbstractPosition(String name, String chu, String tuan, String kpinorma, String kpinormpropa, String ktinormb, String ktinormpropb, String kcinormc, String kcinormpropc, String kcinormd, String kcinormpropd, Double propa, Double propb, Double propc, Double propd) {
+    public AbstractPosition(String name, String chu, String tuan, String norma, String normpropa, String normb, String normpropb, String normc, String normpropc, String normd, String normpropd, Double propa, Double propb, Double propc, Double propd, Integer status) {
         this.name = name;
         this.chu = chu;
         this.tuan = tuan;
-        this.kpinorma = kpinorma;
-        this.kpinormpropa = kpinormpropa;
-        this.ktinormb = ktinormb;
-        this.ktinormpropb = ktinormpropb;
-        this.kcinormc = kcinormc;
-        this.kcinormpropc = kcinormpropc;
-        this.kcinormd = kcinormd;
-        this.kcinormpropd = kcinormpropd;
+        this.norma = norma;
+        this.normpropa = normpropa;
+        this.normb = normb;
+        this.normpropb = normpropb;
+        this.normc = normc;
+        this.normpropc = normpropc;
+        this.normd = normd;
+        this.normpropd = normpropd;
         this.propa = propa;
         this.propb = propb;
         this.propc = propc;
         this.propd = propd;
+        this.status = status;
     }
 
    
@@ -91,68 +93,68 @@ public abstract class AbstractPosition  implements java.io.Serializable {
         this.tuan = tuan;
     }
 
-    public String getKpinorma() {
-        return this.kpinorma;
+    public String getNorma() {
+        return this.norma;
     }
     
-    public void setKpinorma(String kpinorma) {
-        this.kpinorma = kpinorma;
+    public void setNorma(String norma) {
+        this.norma = norma;
     }
 
-    public String getKpinormpropa() {
-        return this.kpinormpropa;
+    public String getNormpropa() {
+        return this.normpropa;
     }
     
-    public void setKpinormpropa(String kpinormpropa) {
-        this.kpinormpropa = kpinormpropa;
+    public void setNormpropa(String normpropa) {
+        this.normpropa = normpropa;
     }
 
-    public String getKtinormb() {
-        return this.ktinormb;
+    public String getNormb() {
+        return this.normb;
     }
     
-    public void setKtinormb(String ktinormb) {
-        this.ktinormb = ktinormb;
+    public void setNormb(String normb) {
+        this.normb = normb;
     }
 
-    public String getKtinormpropb() {
-        return this.ktinormpropb;
+    public String getNormpropb() {
+        return this.normpropb;
     }
     
-    public void setKtinormpropb(String ktinormpropb) {
-        this.ktinormpropb = ktinormpropb;
+    public void setNormpropb(String normpropb) {
+        this.normpropb = normpropb;
     }
 
-    public String getKcinormc() {
-        return this.kcinormc;
+    public String getNormc() {
+        return this.normc;
     }
     
-    public void setKcinormc(String kcinormc) {
-        this.kcinormc = kcinormc;
+    public void setNormc(String normc) {
+        this.normc = normc;
     }
 
-    public String getKcinormpropc() {
-        return this.kcinormpropc;
+    public String getNormpropc() {
+        return this.normpropc;
     }
     
-    public void setKcinormpropc(String kcinormpropc) {
-        this.kcinormpropc = kcinormpropc;
+    public void setNormpropc(String normpropc) {
+        this.normpropc = normpropc;
     }
 
-    public String getKcinormd() {
-        return this.kcinormd;
+    public String getNormd() {
+        return this.normd;
     }
     
-    public void setKcinormd(String kcinormd) {
-        this.kcinormd = kcinormd;
+    public void setNormd(String normd) {
+        this.normd = normd;
     }
 
-    public String getKcinormpropd() {
-        return this.kcinormpropd;
+    public String getNormpropd() {
+        return this.normpropd;
     }
     
-    public void setKcinormpropd(String kcinormpropd) {
-        this.kcinormpropd = kcinormpropd;
+    public void setNormpropd(String normpropd) {
+        this.normpropd = normpropd;
     }
 
     public Double getPropa() {
@@ -185,6 +187,14 @@ public abstract class AbstractPosition  implements java.io.Serializable {
     
     public void setPropd(Double propd) {
         this.propd = propd;
+    }
+
+    public Integer getStatus() {
+        return this.status;
+    }
+    
+    public void setStatus(Integer status) {
+        this.status = status;
     }
    
 

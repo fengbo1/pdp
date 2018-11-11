@@ -8,7 +8,7 @@
     <class name="pdp.pos.pojo.Position" table="p_position" catalog="pdp">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="identity" />
+            <generator class="native"></generator>
         </id>
         <property name="name" type="java.lang.String">
             <column name="name" length="64">
@@ -23,41 +23,41 @@
         <property name="tuan" type="java.lang.String">
             <column name="tuan" length="10" />
         </property>
-        <property name="kpinorma" type="java.lang.String">
-            <column name="kpinorma" length="128">
+        <property name="norma" type="java.lang.String">
+            <column name="norma" length="128">
                 <comment>KPI指标</comment>
             </column>
         </property>
-        <property name="kpinormpropa" type="java.lang.String">
-            <column name="kpinormpropa" length="128">
+        <property name="normpropa" type="java.lang.String">
+            <column name="normpropa" length="128">
                 <comment>KPI指标比重</comment>
             </column>
         </property>
-        <property name="ktinormb" type="java.lang.String">
-            <column name="ktinormb" length="128">
+        <property name="normb" type="java.lang.String">
+            <column name="normb" length="128">
                 <comment>KTI指标</comment>
             </column>
         </property>
-        <property name="ktinormpropb" type="java.lang.String">
-            <column name="ktinormpropb" length="128">
+        <property name="normpropb" type="java.lang.String">
+            <column name="normpropb" length="128">
                 <comment>KTI指标比重</comment>
             </column>
         </property>
-        <property name="kcinormc" type="java.lang.String">
-            <column name="kcinormc" length="128">
+        <property name="normc" type="java.lang.String">
+            <column name="normc" length="128">
                 <comment>KCI指标</comment>
             </column>
         </property>
-        <property name="kcinormpropc" type="java.lang.String">
-            <column name="kcinormpropc" length="128">
+        <property name="normpropc" type="java.lang.String">
+            <column name="normpropc" length="128">
                 <comment>KCI指标比重</comment>
             </column>
         </property>
-        <property name="kcinormd" type="java.lang.String">
-            <column name="kcinormd" length="128" />
+        <property name="normd" type="java.lang.String">
+            <column name="normd" length="128" />
         </property>
-        <property name="kcinormpropd" type="java.lang.String">
-            <column name="kcinormpropd" length="128" />
+        <property name="normpropd" type="java.lang.String">
+            <column name="normpropd" length="128" />
         </property>
         <property name="propa" type="java.lang.Double">
             <column name="propa" precision="22" scale="0">
@@ -76,6 +76,9 @@
         </property>
         <property name="propd" type="java.lang.Double">
             <column name="propd" precision="22" scale="0" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
         </property>
     </class>
 </hibernate-mapping>

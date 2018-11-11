@@ -26,18 +26,19 @@ public class PositionDAO extends BaseHibernateDAO  {
 	public static final String NAME = "name";
 	public static final String CHU = "chu";
 	public static final String TUAN = "tuan";
-	public static final String KPINORMA = "kpinorma";
-	public static final String KPINORMPROPA = "kpinormpropa";
-	public static final String KTINORMB = "ktinormb";
-	public static final String KTINORMPROPB = "ktinormpropb";
-	public static final String KCINORMC = "kcinormc";
-	public static final String KCINORMPROPC = "kcinormpropc";
-	public static final String KCINORMD = "kcinormd";
-	public static final String KCINORMPROPD = "kcinormpropd";
+	public static final String NORMA = "norma";
+	public static final String NORMPROPA = "normpropa";
+	public static final String NORMB = "normb";
+	public static final String NORMPROPB = "normpropb";
+	public static final String NORMC = "normc";
+	public static final String NORMPROPC = "normpropc";
+	public static final String NORMD = "normd";
+	public static final String NORMPROPD = "normpropd";
 	public static final String PROPA = "propa";
 	public static final String PROPB = "propb";
 	public static final String PROPC = "propc";
 	public static final String PROPD = "propd";
+	public static final String STATUS = "status";
 
 
 
@@ -125,51 +126,51 @@ public class PositionDAO extends BaseHibernateDAO  {
 		);
 	}
 	
-	public List findByKpinorma(Object kpinorma
+	public List findByNorma(Object norma
 	) {
-		return findByProperty(KPINORMA, kpinorma
+		return findByProperty(NORMA, norma
 		);
 	}
 	
-	public List findByKpinormpropa(Object kpinormpropa
+	public List findByNormpropa(Object normpropa
 	) {
-		return findByProperty(KPINORMPROPA, kpinormpropa
+		return findByProperty(NORMPROPA, normpropa
 		);
 	}
 	
-	public List findByKtinormb(Object ktinormb
+	public List findByNormb(Object normb
 	) {
-		return findByProperty(KTINORMB, ktinormb
+		return findByProperty(NORMB, normb
 		);
 	}
 	
-	public List findByKtinormpropb(Object ktinormpropb
+	public List findByNormpropb(Object normpropb
 	) {
-		return findByProperty(KTINORMPROPB, ktinormpropb
+		return findByProperty(NORMPROPB, normpropb
 		);
 	}
 	
-	public List findByKcinormc(Object kcinormc
+	public List findByNormc(Object normc
 	) {
-		return findByProperty(KCINORMC, kcinormc
+		return findByProperty(NORMC, normc
 		);
 	}
 	
-	public List findByKcinormpropc(Object kcinormpropc
+	public List findByNormpropc(Object normpropc
 	) {
-		return findByProperty(KCINORMPROPC, kcinormpropc
+		return findByProperty(NORMPROPC, normpropc
 		);
 	}
 	
-	public List findByKcinormd(Object kcinormd
+	public List findByNormd(Object normd
 	) {
-		return findByProperty(KCINORMD, kcinormd
+		return findByProperty(NORMD, normd
 		);
 	}
 	
-	public List findByKcinormpropd(Object kcinormpropd
+	public List findByNormpropd(Object normpropd
 	) {
-		return findByProperty(KCINORMPROPD, kcinormpropd
+		return findByProperty(NORMPROPD, normpropd
 		);
 	}
 	
@@ -194,6 +195,12 @@ public class PositionDAO extends BaseHibernateDAO  {
 	public List findByPropd(Object propd
 	) {
 		return findByProperty(PROPD, propd
+		);
+	}
+	
+	public List findByStatus(Object status
+	) {
+		return findByProperty(STATUS, status
 		);
 	}
 	

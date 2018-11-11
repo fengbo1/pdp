@@ -95,6 +95,14 @@ public class PosAction {
 	}
 	public String execute() throws Exception
 	{
+		if(chu==null||chu.equals(""))
+		{
+			chu="wu";
+		}
+		if(tuan==null||tuan.equals(""))
+		{
+			tuan="wu";
+		}
 		Query query;
 		String hql = "";
 		list = new ArrayList<Position>();
@@ -112,6 +120,12 @@ public class PosAction {
 			}
 			hql +=" order by pos.chu,pos.tuan";
 			System.out.println(hql);
+			query = session.createQuery(hql);
+			query.setFirstResult(pageSize * (currentPage - 1));
+			query.setMaxResults(pageSize);
+			totalRows = session.createQuery(hql).list().size();
+			initPageProperties();
+			list = query.list();
 		} catch (Exception e) {
 		// TODO: handle exception
 			e.printStackTrace();

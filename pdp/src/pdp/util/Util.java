@@ -63,4 +63,34 @@ public class Util {
 		}
 		return result;
 	}
+	public static String ChuToString(String chu)
+	{
+		String result = "";
+		if(chu==null)
+		{
+			
+		}
+		else if(chu.equals("1"))
+		{
+			result = "综合与生产管理处";
+		}
+		else if(chu.equals("2"))
+		{
+			result = "合规与监督二处";
+		}
+		else if(chu.equals("3"))
+		{
+			result = "通用业务二处";
+		}
+		else if(chu.equals("5"))
+		{
+			result = "研发支持二处";
+		}
+		else if(chu.equals("6"))
+		{
+			result = "专业处理二处";
+		}
+		
+		return result;
+	}
 }
