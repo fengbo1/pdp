@@ -40,8 +40,7 @@
 		<mapping resource="pdp/score/pojo/Score.hbm.xml" />
 		<mapping resource="pdp/pos/pojo/Position.hbm.xml" />
 		<mapping resource="pdp/norm/pojo/Norm.hbm.xml" />
-		<!-- <mapping resource="pdp/flag/pojo/Flag.hbm.xml" />
-			 -->
+		<mapping resource="pdp/mng/pojo/Flag.hbm.xml"></mapping>
 
 	</session-factory>
 

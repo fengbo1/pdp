@@ -1,7 +1,8 @@
-package pdp.norm.action;
+package pdp.pos.action;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Query;
@@ -10,72 +11,39 @@ import org.hibernate.Transaction;
 
 import ccb.hibernate.HibernateSessionFactory;
 
-import pdp.norm.bean.NormBean;
-import pdp.norm.pojo.Norm;
+import pdp.pos.pojo.Position;
 import pdp.util.Util;
 
-public class NormAction {
-
-	private static final Log log = LogFactory.getLog(NormAction.class);
-	private String newnumber;
-	private String type;
-	private List<NormBean> list;
-	private String pdppos;//pdp岗位
-	/**
-	* 获得默认的分页大小
-	*/
+public class PosAction {
+	private static final Log log = LogFactory.getLog(PosAction.class);
+	private String chu;
+	private String tuan;
+	private List<Position> list;
 	private int pageSize = Util.pagesize;
-	/**
-	* 总页数
-	*/
 	private int totalPages = -1;
-	/**
-	* 当前页
-	*/
 	private int currentPage = -1;
-	/**
-	* 上一页
-	*/
 	private int previousPage = 1;
-	/**
-	* 下一页
-	*/
 	private int nextPage = 1;
-	/**
-	* 第一页
-	*/
 	private int firstPage = 1;
-	/**
-	* 最后一页
-	*/
 	private int lastPage = 1;
-	/**
-	* 总记录条数
-	*/
 	private long totalRows = -1;
-	public String getNewnumber() {
-		return newnumber;
+	public String getChu() {
+		return chu;
 	}
-	public void setNewnumber(String newnumber) {
-		this.newnumber = newnumber;
+	public void setChu(String chu) {
+		this.chu = chu;
 	}
-	public List<NormBean> getList() {
+	public String getTuan() {
+		return tuan;
+	}
+	public void setTuan(String tuan) {
+		this.tuan = tuan;
+	}
+	public List<Position> getList() {
 		return list;
 	}
-	public void setList(List<NormBean> list) {
+	public void setList(List<Position> list) {
 		this.list = list;
-	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
-	public String getPdppos() {
-		return pdppos;
-	}
-	public void setPdppos(String pdppos) {
-		this.pdppos = pdppos;
 	}
 	public int getPageSize() {
 		return pageSize;
@@ -127,37 +95,25 @@ public class NormAction {
 	}
 	public String execute() throws Exception
 	{
-		String hql = "";
 		Query query;
-		String result = "success";
-		List<Norm> listn = new ArrayList<Norm>();
-		list = new ArrayList<NormBean>(); 
+		String hql = "";
+		list = new ArrayList<Position>();
 		Session session = HibernateSessionFactory.getSession();
 		Transaction trans = session.beginTransaction();
 		try {
-			hql = "from Norm where type='"+type+"'";
-			query = session.createQuery(hql);
-			query.setFirstResult(pageSize * (currentPage - 1));
-			query.setMaxResults(pageSize);
-			totalRows =session.createQuery(hql).list().size();
-			initPageProperties();
-			listn = query.list();
-			for(int i=0;i<listn.size();i++)
+			hql = "from Position as pos where 1=1";
+			if(!chu.equals("wu"))
 			{
-				Norm n = listn.get(i);
-				NormBean nb = new NormBean();
-				nb.setId(String.valueOf(n.getId()));
-				nb.setType(Util.NormToString(type));
-				nb.setLevel("");
-				nb.setNormname(n.getName());
-				nb.setRule(n.getRule());
-				nb.setTarget(n.getTarget());
-				nb.setStdscore(String.valueOf(n.getScore()));
-				nb.setRemark(n.getRemark());
-				list.add(nb);
+				hql+=" and pos.chu='"+chu+"'";
 			}
+			else if(!tuan.equals("wu"))
+			{
+				hql+="and pos.tuan='"+tuan+"'";
+			}
+			hql +=" order by pos.chu,pos.tuan";
+			System.out.println(hql);
 		} catch (Exception e) {
-			// TODO: handle exception
+		// TODO: handle exception
 			e.printStackTrace();
 		}finally{
 			trans.commit();
@@ -165,25 +121,8 @@ public class NormAction {
 			session.clear();
 			session.close();
 		}
-		
-		return result;
+		return "success";
 	}
-	
-	/**
-	 * 初始化页面属性<br>
-	 * 必须在已获得totalRows值之后再调用该函数<br>
-	 * 调用方式为：<br>
-	 * 
-	 * 给totalRows赋值<br>
-	 * 调用initPageProperties(form)方法<br>
-	 * 给list赋值<br>
-	 * 调用initAttribute(request)方法<br>
-	 * 
-	 * 该方法在调用查询语句之前调用<br>
-	 * pageSize为系统默认的分页的大小，如要更改pageSize，应在掉用setPageSize方法后再调用该方法<br>
-	 * 
-	 * 
-	 */
 	protected void initPageProperties() {
 
 		if (totalRows == -1) {

@@ -1,4 +1,4 @@
-package pdp.norm.dao;
+package pdp.mng.dao;
 // default package
 
 import ccb.dao.BaseHibernateDAO;
@@ -9,33 +9,30 @@ import org.hibernate.criterion.Example;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import pdp.norm.pojo.Norm;
+import pdp.mng.pojo.Flag;
 
 /**
- 	* A data access object (DAO) providing persistence and search support for Norm entities.
+ 	* A data access object (DAO) providing persistence and search support for Flag entities.
  			* Transaction control of the save(), update() and delete() operations 
 		can directly support Spring container-managed transactions or they can be augmented	to handle user-managed Spring transactions. 
 		Each of these methods provides additional information for how to configure it for the desired type of transaction control. 	
-	 * @see .Norm
+	 * @see .Flag
   * @author MyEclipse Persistence Tools 
  */
 
-public class NormDAO extends BaseHibernateDAO  {
-	     private static final Logger log = LoggerFactory.getLogger(NormDAO.class);
+public class FlagDAO extends BaseHibernateDAO  {
+	     private static final Logger log = LoggerFactory.getLogger(FlagDAO.class);
 		//property constants
-	public static final String NAME = "name";
-	public static final String TYPE = "type";
-	public static final String LEVEL = "level";
-	public static final String TARGET = "target";
-	public static final String SCORE = "score";
-	public static final String RULE = "rule";
-	public static final String REMARK = "remark";
+	public static final String YEAR = "year";
+	public static final String SEASON = "season";
+	public static final String FLAG = "flag";
+	public static final String ISNEW = "isnew";
 
 
 
     
-    public void save(Norm transientInstance) {
-        log.debug("saving Norm instance");
+    public void save(Flag transientInstance) {
+        log.debug("saving Flag instance");
         try {
             getSession().save(transientInstance);
             log.debug("save successful");
@@ -45,8 +42,8 @@ public class NormDAO extends BaseHibernateDAO  {
         }
     }
     
-	public void delete(Norm persistentInstance) {
-        log.debug("deleting Norm instance");
+	public void delete(Flag persistentInstance) {
+        log.debug("deleting Flag instance");
         try {
             getSession().delete(persistentInstance);
             log.debug("delete successful");
@@ -56,11 +53,11 @@ public class NormDAO extends BaseHibernateDAO  {
         }
     }
     
-    public Norm findById( java.lang.Integer id) {
-        log.debug("getting Norm instance with id: " + id);
+    public Flag findById( java.lang.Integer id) {
+        log.debug("getting Flag instance with id: " + id);
         try {
-            Norm instance = (Norm) getSession()
-                    .get("Norm", id);
+            Flag instance = (Flag) getSession()
+                    .get("Flag", id);
             return instance;
         } catch (RuntimeException re) {
             log.error("get failed", re);
@@ -69,11 +66,11 @@ public class NormDAO extends BaseHibernateDAO  {
     }
     
     
-    public List findByExample(Norm instance) {
-        log.debug("finding Norm instance by example");
+    public List findByExample(Flag instance) {
+        log.debug("finding Flag instance by example");
         try {
             List results = getSession()
-                    .createCriteria("Norm")
+                    .createCriteria("Flag")
                     .add(Example.create(instance))
             .list();
             log.debug("find by example successful, result size: " + results.size());
@@ -85,10 +82,10 @@ public class NormDAO extends BaseHibernateDAO  {
     }    
     
     public List findByProperty(String propertyName, Object value) {
-      log.debug("finding Norm instance with property: " + propertyName
+      log.debug("finding Flag instance with property: " + propertyName
             + ", value: " + value);
       try {
-         String queryString = "from Norm as model where model." 
+         String queryString = "from Flag as model where model." 
          						+ propertyName + "= ?";
          Query queryObject = getSession().createQuery(queryString);
 		 queryObject.setParameter(0, value);
@@ -99,53 +96,35 @@ public class NormDAO extends BaseHibernateDAO  {
       }
 	}
 
-	public List findByName(Object name
+	public List findByYear(Object year
 	) {
-		return findByProperty(NAME, name
+		return findByProperty(YEAR, year
 		);
 	}
 	
-	public List findByType(Object type
+	public List findBySeason(Object season
 	) {
-		return findByProperty(TYPE, type
+		return findByProperty(SEASON, season
 		);
 	}
 	
-	public List findByLevel(Object level
+	public List findByFlag(Object flag
 	) {
-		return findByProperty(LEVEL, level
+		return findByProperty(FLAG, flag
 		);
 	}
 	
-	public List findByTarget(Object target
+	public List findByIsnew(Object isnew
 	) {
-		return findByProperty(TARGET, target
-		);
-	}
-	
-	public List findByScore(Object score
-	) {
-		return findByProperty(SCORE, score
-		);
-	}
-	
-	public List findByRule(Object rule
-	) {
-		return findByProperty(RULE, rule
-		);
-	}
-	
-	public List findByRemark(Object remark
-	) {
-		return findByProperty(REMARK, remark
+		return findByProperty(ISNEW, isnew
 		);
 	}
 	
 
 	public List findAll() {
-		log.debug("finding all Norm instances");
+		log.debug("finding all Flag instances");
 		try {
-			String queryString = "from Norm";
+			String queryString = "from Flag";
 	         Query queryObject = getSession().createQuery(queryString);
 			 return queryObject.list();
 		} catch (RuntimeException re) {
@@ -154,10 +133,10 @@ public class NormDAO extends BaseHibernateDAO  {
 		}
 	}
 	
-    public Norm merge(Norm detachedInstance) {
-        log.debug("merging Norm instance");
+    public Flag merge(Flag detachedInstance) {
+        log.debug("merging Flag instance");
         try {
-            Norm result = (Norm) getSession()
+            Flag result = (Flag) getSession()
                     .merge(detachedInstance);
             log.debug("merge successful");
             return result;
@@ -167,8 +146,8 @@ public class NormDAO extends BaseHibernateDAO  {
         }
     }
 
-    public void attachDirty(Norm instance) {
-        log.debug("attaching dirty Norm instance");
+    public void attachDirty(Flag instance) {
+        log.debug("attaching dirty Flag instance");
         try {
             getSession().saveOrUpdate(instance);
             log.debug("attach successful");
@@ -178,8 +157,8 @@ public class NormDAO extends BaseHibernateDAO  {
         }
     }
     
-    public void attachClean(Norm instance) {
-        log.debug("attaching clean Norm instance");
+    public void attachClean(Flag instance) {
+        log.debug("attaching clean Flag instance");
         try {
             getSession().lock(instance, LockMode.NONE);
             log.debug("attach successful");
@@ -188,25 +167,4 @@ public class NormDAO extends BaseHibernateDAO  {
             throw re;
         }
     }
-    
-	public Norm findAllById(int id) {
-		log.debug("finding all Norm instances");
-		try {
-			String queryString = "from Norm where id='"+id+"'";
-	         Query queryObject = getSession().createQuery(queryString);
-			 List<Norm> list = queryObject.list();
-			 if(!list.isEmpty())
-			 {
-				 return (Norm) list.get(0);
-			 }
-			 else
-			 {
-				 return null;
-			 }
-		} catch (RuntimeException re) {
-			log.error("find all failed", re);
-			throw re;
-		}
-	}
-    
 }

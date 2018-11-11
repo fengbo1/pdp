@@ -5,6 +5,8 @@
 <struts>
 	
 	<package name="pos_default" extends="struts-default" >
-		
+		<action name="posquery" class="pdp.pos.action.PosAction">
+			<result name="success">/page/position/poslist.jsp</result>
+		</action>
 	</package>
 </struts>    

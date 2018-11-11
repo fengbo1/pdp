@@ -11,5 +11,20 @@
 		<action name="beforenormadd" class="pdp.norm.action.BeforeNormAdd">
 			<result name="success">/page/norm/normadd.jsp</result>
 		</action>
+		<action name="normadd" class="pdp.norm.action.NormAdd">
+			<result name="success">/page/norm/normsuccess.jsp</result>
+		</action>
+		<action name="normdel" class="pdp.norm.action.NormDel">
+			<result name="success">/page/norm/normsuccess.jsp</result>
+		</action>
+		<action name="normtoupdate" class="pdp.norm.action.NormToUpdate">
+			<result name="success">/page/norm/normupdate.jsp</result>
+		</action>
+		<action name="normupdate" class="pdp.norm.action.NormUpdate">
+			<result name="success">/page/norm/normsuccess.jsp</result>
+		</action>
+		<action name="exportnorm" class="pdp.norm.action.ExportNorm">
+			<result name="success">/page/public/derivedetail.jsp</result>
+		</action>
 	</package>
 </struts>    

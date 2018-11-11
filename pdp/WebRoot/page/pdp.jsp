@@ -96,13 +96,16 @@ function frame(o)
 	}
 	else if(obj=="pos")
 	{
-		document.getElementById("frame").src="<%=path%>/pos.action";
+		document.getElementById("frame").src="<%=path%>/posquery.action";
 	}
 	else if(obj=="dataimport")
 	{
 	   document.getElementById("frame").src="<%=path%>/beforeimport.action";
 	}
-	
+	else if(obj=="normimport")
+	{
+	   document.getElementById("frame").src="<%=path%>/page/norm/normimport.jsp";
+	}
 }
 </script>
 
@@ -216,6 +219,7 @@ $(document).ready(function(){
 									<li class="cc"  onclick="frame('normb')">关键任务指标</li>
 									<li class="cc"  onclick="frame('normc')">品能指标</li>
 									<li class="cc"  onclick="frame('normd')">加分指标</li>
+									<li class="cc"  onclick="frame('normimport')">导入指标</li>
 								</ul>
 							</li>
 							<li class="a">

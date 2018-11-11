@@ -29,7 +29,7 @@
  
 	</head>
 	<body>
-		<form action="<%=path%>/kciadd_mang.action" method="post">
+		<form action="<%=path%>/normadd.action" method="post">
 			
 				<div style="color: #1778C2; padding-top: 15px; padding-bottom: 15px; border: 0px; font-size: 26px; font-family: '黑体';" align="center" bordercolor="#FFFFFF">
 					<b>${fb:normtypetoname(type)}新增</b>
@@ -92,7 +92,7 @@
     		</tr>
     		<tr>
     			<td width="100" class="as" >
-    				<span style="font-size:16pt;color:black">备注</span><span>*</span>
+    				<span style="font-size:16pt;color:black">备注</span>
     			</td>
     			<td width="300" class="as">
     				<input style="width:500px"  type="text" id="remark" name="remark" />     				

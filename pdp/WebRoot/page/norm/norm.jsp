@@ -43,17 +43,21 @@ brbrbr();
  //导出
  function expressout()
 	{
-		window.location = "<%=path%>/exportkbinorm.action";
+		window.location = "<%=path%>/exportnorm.action?type=${type}";
 	}
 //删除用户
  function del(id)
 {
 	var aa= window.confirm("请确认是否删除该指标");
 	if (aa) {
-		window.location = "<%=path%>/kbidel_mang.action?id="+id;
+		window.location = "<%=path%>/normdel.action?id="+id+"&type=${type}";
 	}
 }
-
+//修改用户
+ function mod(id)
+{
+	window.location = "<%=path%>/normtoupdate.action?id="+id+"&type=${type}";
+}
 function brbrbr()
  	{
  		//var reg1=new RegExp("；","g"); 
@@ -139,13 +143,13 @@ function brbrbr()
 										align="center">${status.index+1+(currentPage-1)*pageSize}</div></td>
 									
 								<td width="100px" height="25" align="center" valign="middle" nowrap><div
-										align="center">${norm.name}</div></td>		
+										align="center">${norm.normname}</div></td>		
 								<td width="100px" height="25" align="center" valign="middle" nowrap><div
 										align="center">${norm.level}</div></td>
 								<td width="400px" height="25" align="center" valign="middle" nowrap><div
 										align="left">${norm.target}</div></td>
 								<td width="50px" height="25" align="center" valign="middle" nowrap><div
-										align="center">${norm.score}</div></td>
+										align="center">${norm.stdscore}</div></td>
 								<td width="150px" height="25" align="center" valign="middle" nowrap><div
 										align="left">${norm.rule}</div></td>
 					
@@ -153,8 +157,7 @@ function brbrbr()
 										align="center">
 										
 										<input type="button" value="删除" onclick="del('${norm.id}')"/>
-									
-										<a href="<%=path%>/user.action?type=to_update&id=<s:property value="id"/>">修改</a>
+										<input type="button" value="修改" onclick="mod('${norm.id}')"/>
 											</div>
 								</td>
 							</tr>
