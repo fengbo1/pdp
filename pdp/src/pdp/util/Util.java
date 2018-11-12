@@ -45,15 +45,15 @@ public class Util {
 		{
 			result = "关键业务指标";
 		}
-		else if(norm.equals("norma"))
+		else if(norm.equals("normb"))
 		{
 			result = "关键任务指标";
 		}
-		else if(norm.equals("norma"))
+		else if(norm.equals("normc"))
 		{
 			result = "品能目标";
 		}
-		else if(norm.equals("norma"))
+		else if(norm.equals("normd"))
 		{
 			result = "加分项";
 		}
@@ -89,6 +89,20 @@ public class Util {
 		else if(chu.equals("6"))
 		{
 			result = "专业处理二处";
+		}
+		return result;
+	}
+	
+	public static String statusToString(Integer status)
+	{
+		String result = "";
+		if(status==5)
+		{
+			result="可用";
+		}
+		else
+		{
+			result="编辑中";
 		}
 		
 		return result;

@@ -2,6 +2,7 @@ package pdp.pos.action;
 
 import java.math.BigDecimal;
 import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -11,14 +12,11 @@ import pdp.pos.dao.PositionDAO;
 import pdp.pos.pojo.Position;
 import ccb.hibernate.HibernateSessionFactory;
 
-public class PosAddA {
+public class PosAddD {
 	private String[] norm;
 	private String[] normprop;
 	private int posid;
 	private String message;
-	private String name;
-	private String chu;
-	private List<Norm> list;
 	public String[] getNorm() {
 		return norm;
 	}
@@ -42,24 +40,6 @@ public class PosAddA {
 	}
 	public void setMessage(String message) {
 		this.message = message;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getChu() {
-		return chu;
-	}
-	public void setChu(String chu) {
-		this.chu = chu;
-	}
-	public List<Norm> getList() {
-		return list;
-	}
-	public void setList(List<Norm> list) {
-		this.list = list;
 	}
 	public String execute() throws Exception
 	{
@@ -135,17 +115,12 @@ public class PosAddA {
 		Position p =new Position();
 		Session session = HibernateSessionFactory.getSession();
  	    Transaction trans = session.beginTransaction();
- 	    p=pdao.findAllByNameAndChu(name, chu);
+ 	    p=pdao.findAllById(posid);
  	    
- 	    p.setNorma(normcun);
- 	    p.setNormpropa(normpropcun);
+ 	    p.setNormd(normcun);
+ 	    p.setNormpropd(normpropcun);
  	    pdao.merge(p);
- 	    posid=p.getId();
  	    message="添加成功";
- 	    hql = "from Norm as n where n.type='normb'";
-		System.out.println(hql);
-		query = session.createQuery(hql);
-		list = query.list();
  	    trans.commit();
 		session.flush();
 		session.clear();

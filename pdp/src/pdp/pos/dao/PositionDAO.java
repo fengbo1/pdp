@@ -251,4 +251,42 @@ public class PositionDAO extends BaseHibernateDAO  {
             throw re;
         }
     }
+	public Position findAllByNameAndChu(String name,String chu) {
+		log.debug("finding all Position instances");
+		try {
+			String queryString = "from Position as p where p.name='"+name+"' and p.chu='"+chu+"'";
+	         Query queryObject = getSession().createQuery(queryString);
+	         List<Position> list = queryObject.list();
+	         if(list.isEmpty())
+	         {
+	        	 return null;
+	         }
+	         else
+	         {
+	        	 return list.get(0);
+	         }
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
+	public Position findAllById(int id) {
+		log.debug("finding all Position instances");
+		try {
+			String queryString = "from Position as p where p.id='"+id+"'";
+	         Query queryObject = getSession().createQuery(queryString);
+	         List<Position> list = queryObject.list();
+	         if(list.isEmpty())
+	         {
+	        	 return null;
+	         }
+	         else
+	         {
+	        	 return list.get(0);
+	         }
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
 }

@@ -115,6 +115,7 @@
     				<span style="font-size:12pt;color:black">操作</span><span>*</span>
     			</td>
     			<td width="300" class="as">
+    			<input style="width: 80px" type="button" onclick="javascript:history.go(-1);" value="返回" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     			     <input style="width: 80px" type="submit" class="but" value="下一步" />
     			  &nbsp;&nbsp;&nbsp;&nbsp;
 		   				

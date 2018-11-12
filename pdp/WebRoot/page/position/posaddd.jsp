@@ -77,7 +77,7 @@ function tijiao()
 	}
 	 with(document.forms[0])
 	 {
-		action='posadda.action';
+		action='posaddd.action';
 	    method="post";
 	    submit();
 					
@@ -89,12 +89,12 @@ function tijiao()
   
   <body>
   ${daohang}
-  <form action="posadda.action" method="post" name="fm1">
+  <form action="posaddb.action" method="post" name="fm1">
 					<table height="80" align="center" cellpadding="0" cellspacing="2" >				
 					<tr>
 							 <td
 								style="color: #1778C2; padding-top: 15px; padding-bottom: 15px; border: 0px; font-size: 26px; font-family: '黑体';"
-								colspan="8" align="center" bordercolor="#FFFFFF"><b>关键业务指标选择</b>
+								colspan="8" align="center" bordercolor="#FFFFFF"><b>加分项</b>
 							</td>
 					</tr>
 					<tr>
@@ -176,11 +176,10 @@ function tijiao()
     			<td colspan="8" class="as">
     			   <div align="center">
     			   
-    			    <input style="width: 100px"  type="button" value="下一步" onclick="tijiao()"/>
+    			    <input style="width: 100px"  type="button" value="提交" onclick="tijiao()"/>
     			    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     				<input style="width: 100px" type="button" onclick="javascript:history.go(-1);" value="返回" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		   			<input type="hidden" name="name" value="${name}"/>
-		   			<input type="hidden" name="chu" value="${chu}"/>
+		   			<input type="hidden" name="posid" value="${posid}"/>
 		   			</div>	
     			</td>
     			

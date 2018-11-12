@@ -116,9 +116,9 @@ public class PosAction {
 			}
 			else if(!tuan.equals("wu"))
 			{
-				hql+="and pos.tuan='"+tuan+"'";
+				hql+=" and pos.tuan='"+tuan+"'";
 			}
-			hql +=" order by pos.chu,pos.tuan";
+			hql +=" and pos.status=5 order by pos.chu,pos.tuan";
 			System.out.println(hql);
 			query = session.createQuery(hql);
 			query.setFirstResult(pageSize * (currentPage - 1));

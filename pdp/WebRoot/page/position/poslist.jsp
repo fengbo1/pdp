@@ -50,10 +50,7 @@ function show(id)
 {
 	window.location = "<%=path%>/posshow.action?id="+id;
 }
-function mod(id)
-{
-	window.location = "<%=path%>/postoupdate.action?id="+id;
-}
+
 function del(id)
 {
 	window.location = "<%=path%>/posdel.action?id="+id;
@@ -71,11 +68,11 @@ function del(id)
 						<tr>
 							<td
 								style="color: #1778C2; padding-top: 15px; padding-bottom: 15px; border: 0px; font-size: 26px; font-family: '黑体';"
-								colspan="4" align="center" bordercolor="#FFFFFF"><b>岗位信息表</b>
+								colspan="5" align="center" bordercolor="#FFFFFF"><b>岗位信息表</b>
 							</td>
 						</tr>
 						<tr>
-							<td colspan="4" height="10px">
+							<td colspan="5" height="10px">
 								<div align="center">
 									
 									处室
@@ -109,6 +106,10 @@ function del(id)
 								</div></td>
 							<td  width="150px" align="center" valign="middle" nowrap
 								bordercolor=none><div align="center">
+									<p>状态</p>
+								</div></td>	
+							<td  width="150px" align="center" valign="middle" nowrap
+								bordercolor=none><div align="center">
 									<p>操作</p>
 								</div></td>
 															
@@ -123,10 +124,11 @@ function del(id)
 										align="center">${pos.name}</div></td>		
 								<td width="150px" height="25" align="center" valign="middle" nowrap><div
 										align="center">${fb:chutostring(pos.chu)}</div></td>
+								<td width="150px" height="25" align="center" valign="middle" nowrap><div
+										align="center">${fb:chutostring(pos.chu)}</div></td>		
 								<td width="100px" height="25" align="center" valign="middle" nowrap><div
 										align="center">
 										<input type="button" value="详情" onclick="show('${pos.id}')"/>
-										<input type="button" value="修改" onclick="mod('${pos.id}')"/>
 										<input type="button" value="删除" onclick="del('${pos.id}')"/>
 											</div>
 								</td>
@@ -135,7 +137,7 @@ function del(id)
 							</c:forEach>
 							<tr class="表格表头背景">
 						
-							<td colspan="3">
+							<td colspan="4">
 						 		
 							<div align="center">
 								<a	href="<%=path%>/posquery.action?chu=${chu}&currentPage=${previousPage}&newnumber=${newnumber}"
@@ -145,7 +147,7 @@ function del(id)
 							style="padding-right: 30px;color: #104E8B">下一页</a> 	
 									共有 ${totalRows} 条记录
 								</div></td>
-								<td >
+								<td align="center">
 								 <input type="button" value="添加新岗位" onclick="location='<%=path%>/beforeposadd.action?chu=${chu}'"/>	
 								</td>
 						</tr>

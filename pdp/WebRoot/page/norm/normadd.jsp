@@ -105,6 +105,7 @@
     			</td>
     			<td width="300" class="as">
     				<input type="hidden" name="type" value="${type}"/>
+    				
     				<input style="width: 80px" type="button" onclick="javascript:history.go(-1);" value="返回" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				   <input style="width: 80px" type="submit" class="but" value="提交" />
     				

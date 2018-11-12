@@ -21,8 +21,12 @@
 			<result name="failed">/page/position/posaddb.jsp</result>
 		</action>
 		<action name="posaddc" class="pdp.pos.action.PosAddC">
-			<result name="success">/page/position/poslist.jsp</result>
+			<result name="success">/page/position/posaddd.jsp</result>
 			<result name="failed">/page/position/posaddc.jsp</result>
+		</action>
+		<action name="posaddd" class="pdp.pos.action.PosAddD">
+			<result name="success">/page/position/possuccess.jsp</result>
+			<result name="failed">/page/position/posaddd.jsp</result>
 		</action>
 		<action name="posdel" class="pdp.pos.action.PosDel">
 			<result name="success">/page/position/possuccess.jsp</result>
