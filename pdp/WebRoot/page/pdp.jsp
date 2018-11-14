@@ -64,6 +64,10 @@ function frame(o)
 	}
 	else if(obj=="rate")
 	{
+		document.getElementById("frame").src="<%=path%>/findrater.action";
+	}
+	else if(obj=="rate")
+	{
 		document.getElementById("frame").src="<%=path%>/beforerate.action";
 	}
 	else if(obj=="query")
@@ -236,6 +240,7 @@ $(document).ready(function(){
 								</div>
 								<ul class="menu1">
 									<li class="cc"  onclick="frame('userinfo')">员工信息管理</li>
+									<li class="cc"  onclick="frame('rater')">有权评分设置</li>
 								</ul>
 							</li>
 							<li class="a">

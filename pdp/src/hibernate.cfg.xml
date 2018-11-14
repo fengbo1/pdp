@@ -41,6 +41,7 @@
 		<mapping resource="pdp/pos/pojo/Position.hbm.xml" />
 		<mapping resource="pdp/norm/pojo/Norm.hbm.xml" />
 		<mapping resource="pdp/mng/pojo/Flag.hbm.xml"></mapping>
+		<mapping resource="pdp/userinfo/pojo/Rater.hbm.xml" />
 
 	</session-factory>
 

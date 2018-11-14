@@ -64,10 +64,13 @@ public class PosAddA {
 	public String execute() throws Exception
 	{
 		Query query;
+		String rst = "success";
 		String hql = "";
 		String normcun = "";
 		String normpropcun = "";
 		int propnum=0;
+		Session session = HibernateSessionFactory.getSession();
+	 	Transaction trans = session.beginTransaction();
 		if(norm!=null&&norm.length!=0)
 		{	
 		  normcun =norm[0];
@@ -97,52 +100,37 @@ public class PosAddA {
 		if(propnum==0)
 		{
 			message="指标权重未填！";
-			return "failed";
+			rst = "failed";
 		}
-		if(norm==null||norm.length==0)
+		else if(norm==null||norm.length==0)
 		{
 			message="指标未选！";
-			return "failed";
+			rst = "failed";
 		}
-		if(norm.length!=propnum)
+		else if(norm.length!=propnum)
 		{
 			message="指标数量和指标权重数量不匹配！";
-			return "failed";
+			rst = "failed";
 		}
-		if(propnum!=0)
-		{
-			
-			String propstr="";
-			BigDecimal result = new BigDecimal("0");
-			for(int i=0;i<normprop.length;i++)
-		    {
-				if(normprop[i]!="")
-				{
-					propstr= normprop[i];	
-					BigDecimal b = new BigDecimal(propstr);			 	    
-			 	    result = result.add(b);
-				}	
-		    }
-			double prop=result.doubleValue();
-			
-			if(prop!=1.00)
-			{
-				message="指标权重数量之和不等于1！";
-				return "failed";
-			}
-		}
-		PositionDAO pdao=new PositionDAO();
-		Position p =new Position();
-		Session session = HibernateSessionFactory.getSession();
- 	    Transaction trans = session.beginTransaction();
- 	    p=pdao.findAllByNameAndChu(name, chu);
- 	    
- 	    p.setNorma(normcun);
- 	    p.setNormpropa(normpropcun);
- 	    pdao.merge(p);
- 	    posid=p.getId();
- 	    message="添加成功";
- 	    hql = "from Norm as n where n.type='normb'";
+ 	    if(rst.equals("failed"))
+ 	    {
+ 	    	 hql = "from Norm as n where n.type='norma'";
+ 	    }
+ 	    else
+ 	    {
+ 	    	PositionDAO pdao=new PositionDAO();
+ 			Position p =new Position();
+ 	 	    p=pdao.findAllByNameAndChu(name, chu);
+ 	 	    
+ 	 	    p.setNorma(normcun);
+ 	 	    p.setNormpropa(normpropcun);
+ 	 	    p.setStatus(2);
+ 	 	    pdao.merge(p);
+ 	 	    posid=p.getId();
+ 	 	    message="添加成功";
+ 	    	 hql = "from Norm as n where n.type='normb'";
+ 	    }
+ 	   
 		System.out.println(hql);
 		query = session.createQuery(hql);
 		list = query.list();
@@ -150,6 +138,6 @@ public class PosAddA {
 		session.flush();
 		session.clear();
 		session.close();
-		return "success";
+		return rst;
 	}
 }

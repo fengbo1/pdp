@@ -68,11 +68,11 @@ function del(id)
 						<tr>
 							<td
 								style="color: #1778C2; padding-top: 15px; padding-bottom: 15px; border: 0px; font-size: 26px; font-family: '黑体';"
-								colspan="5" align="center" bordercolor="#FFFFFF"><b>岗位信息表</b>
+								colspan="4" align="center" bordercolor="#FFFFFF"><b>岗位信息表</b>
 							</td>
 						</tr>
 						<tr>
-							<td colspan="5" height="10px">
+							<td colspan="4" height="10px">
 								<div align="center">
 									
 									处室
@@ -102,10 +102,6 @@ function del(id)
 								</div></td>
 							<td  width="150px" align="center" valign="middle" nowrap
 								bordercolor=none><div align="center">
-									<p>处室</p>
-								</div></td>
-							<td  width="150px" align="center" valign="middle" nowrap
-								bordercolor=none><div align="center">
 									<p>状态</p>
 								</div></td>	
 							<td  width="150px" align="center" valign="middle" nowrap
@@ -124,8 +120,6 @@ function del(id)
 										align="center">${pos.name}</div></td>		
 								<td width="150px" height="25" align="center" valign="middle" nowrap><div
 										align="center">${fb:chutostring(pos.chu)}</div></td>
-								<td width="150px" height="25" align="center" valign="middle" nowrap><div
-										align="center">${fb:chutostring(pos.chu)}</div></td>		
 								<td width="100px" height="25" align="center" valign="middle" nowrap><div
 										align="center">
 										<input type="button" value="详情" onclick="show('${pos.id}')"/>
@@ -137,7 +131,7 @@ function del(id)
 							</c:forEach>
 							<tr class="表格表头背景">
 						
-							<td colspan="4">
+							<td colspan="3">
 						 		
 							<div align="center">
 								<a	href="<%=path%>/posquery.action?chu=${chu}&currentPage=${previousPage}&newnumber=${newnumber}"

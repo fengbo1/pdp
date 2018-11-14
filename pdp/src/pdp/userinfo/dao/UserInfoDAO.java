@@ -293,4 +293,26 @@ public class UserInfoDAO extends BaseHibernateDAO  {
             throw re;
         }
     }
+    public String findChushiToString(String chu) {
+		log.debug("finding all UserInfo instances");
+		try {
+			String peoples = "";
+			String queryString = "from UserInfo where position like '__"+chu+"__'";
+	         Query queryObject = getSession().createQuery(queryString);
+	         List<UserInfo> list = queryObject.list();
+	         if(list.size()>0)
+	         {
+	        	 for(int i=0;i<list.size();i++)
+		         {
+	        		 UserInfo ui = list.get(i);
+		        	 peoples+=
+		         }
+	         }
+	         
+			 return queryObject.list();
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
 }

@@ -9,6 +9,9 @@
 			<result name="success">/page/pdp.jsp</result>
 			<result name="failed">/index.jsp</result>
 		</action>
+		<action name="findrater" class="pdp.userinfo.action.FindRater">
+			<result name="success">/page/userinfo/rater.jsp</result>
+		</action>
 		
 	</package>
 </struts>    

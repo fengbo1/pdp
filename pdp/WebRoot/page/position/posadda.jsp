@@ -56,25 +56,6 @@ brbrbr();
  	 
 function tijiao()
 {
-	var normlist = document.getElementsByName("norm");
-	//var normprop = document.getElementsByName("kbinormprop");
-	var i=0;
-	for(i=0;i<normlist.length;i++)
-	{
-	  
-	    if(normlist[i].checked)
-	    {
-             //alert(normlist[i].value);
-            // alert(typeof((Number(normlist[i].value)+100000).toString()));
-             //alert((Number(normlist[i].value)+100000).toString());
-             var prop=document.getElementById((Number(normlist[i].value)+100000).toString()).value;
-             if(prop=="")
-             {
-                 alert("选中的指标权重未填！");
-                 return;
-             }    
-	    }
-	}
 	 with(document.forms[0])
 	 {
 		action='posadda.action';
@@ -88,7 +69,7 @@ function tijiao()
   </head>
   
   <body>
-  ${daohang}
+   <b style="color:red">${message}</b>
   <form action="posadda.action" method="post" name="fm1">
 					<table height="80" align="center" cellpadding="0" cellspacing="2" >				
 					<tr>
@@ -164,7 +145,12 @@ function tijiao()
 								<td width="50px" height="25" align="center" valign="middle" nowrap><div
 										align="center"><input id="${kb.id}" type="checkbox"  name="norm" value="${kb.id}" /></div></td>	
 								<td width="65px" height="25" align="center" valign="middle" nowrap><div
-										align="center"><input id="${kb.id+100000}" style="width:50px" type="text" name="normprop"  onkeyup="this.value=value.replace(/[^\d.]/g,'')"  onafterpaste="this.value=value.replace(/[^\d.]/g,'')"/></div></td>			
+										align="center">
+										<select style="width:50px"  id="${kb.id+100000}" name="normprop">
+						                 <option value="1">得分项</option>
+						                 <option value="-1">扣分项</option>
+					                </select>
+										</div></td>			
 				     </tr>
 					</c:forEach>
 								</table>

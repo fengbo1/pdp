@@ -13,12 +13,12 @@
 			<generator class="native"></generator>
 		</primary-key>
 	</table>
-<table name="p_position" catalog="pdp" class="Position">
-	<primary-key>
-		<generator class="native"></generator>
-	</primary-key>
-</table>
-<table name="p_norm" catalog="pdp" class="Norm">
+	<table name="p_position" catalog="pdp" class="Position">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="p_norm" catalog="pdp" class="Norm">
 		<primary-key>
 			<generator class="native"></generator>
 		</primary-key>
@@ -28,4 +28,9 @@
 			<generator class="native"></generator>
 		</primary-key>
 	</table>
+<table name="rater" catalog="pdp" class="Rater">
+	<primary-key>
+		<generator class="native"></generator>
+	</primary-key>
+</table>
 </hibernate-reverse-engineering>

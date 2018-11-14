@@ -51,10 +51,13 @@ public class PosAddC {
 	public String execute() throws Exception
 	{
 		Query query;
+		String rst = "success";
 		String hql = "";
 		String normcun = "";
 		String normpropcun = "";
 		int propnum=0;
+		Session session = HibernateSessionFactory.getSession();
+ 	    Transaction trans = session.beginTransaction();
 		if(norm!=null&&norm.length!=0)
 		{	
 		  normcun =norm[0];
@@ -84,19 +87,19 @@ public class PosAddC {
 		if(propnum==0)
 		{
 			message="指标权重未填！";
-			return "failed";
+			rst =  "failed";
 		}
-		if(norm==null||norm.length==0)
+		else if(norm==null||norm.length==0)
 		{
 			message="指标未选！";
-			return "failed";
+			rst =  "failed";
 		}
-		if(norm.length!=propnum)
+		else if(norm.length!=propnum)
 		{
 			message="指标数量和指标权重数量不匹配！";
-			return "failed";
+			rst =  "failed";
 		}
-		if(propnum!=0)
+		else  if(propnum!=0)
 		{
 			
 			String propstr="";
@@ -115,20 +118,28 @@ public class PosAddC {
 			if(prop!=1.00)
 			{
 				message="指标权重数量之和不等于1！";
-				return "failed";
+				rst =  "failed";
 			}
 		}
-		PositionDAO pdao=new PositionDAO();
-		Position p =new Position();
-		Session session = HibernateSessionFactory.getSession();
- 	    Transaction trans = session.beginTransaction();
- 	    p=pdao.findAllById(posid);
- 	    
- 	    p.setNormc(normcun);
- 	    p.setNormpropc(normpropcun);
- 	    pdao.merge(p);
- 	    message="添加成功";
- 	    hql = "from Norm as n where n.type='normd'";
+		
+ 	   if(rst.equals("failed"))
+	    {
+	    	 hql = "from Norm as n where n.type='normc'";
+	    }
+	    else
+	    {
+	    	PositionDAO pdao=new PositionDAO();
+			Position p =new Position();
+			
+	 	    p=pdao.findAllById(posid);
+	 	    
+	 	    p.setNormc(normcun);
+	 	    p.setNormpropc(normpropcun);
+	 	    p.setStatus(4);
+	 	    pdao.merge(p);
+	 	    message="添加成功";
+	    	 hql = "from Norm as n where n.type='normd'";
+	    }
 		System.out.println(hql);
 		query = session.createQuery(hql);
 		list = query.list();
@@ -136,6 +147,6 @@ public class PosAddC {
 		session.flush();
 		session.clear();
 		session.close();
-		return "success";
+		return rst;
 	}
 }

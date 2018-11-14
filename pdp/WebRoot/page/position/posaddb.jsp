@@ -88,7 +88,7 @@ function tijiao()
   </head>
   
   <body>
-  ${daohang}
+  <b style="color:red">${message}</b>
   <form action="posaddb.action" method="post" name="fm1">
 					<table height="80" align="center" cellpadding="0" cellspacing="2" >				
 					<tr>
@@ -136,7 +136,11 @@ function tijiao()
 							<td  width="70px"  align="center" valign="middle" nowrap
 								bordercolor=none><div align="center">
 									<p>权重</p>
-								</div></td>												
+								</div></td>
+							<td  width="70px"  align="center" valign="middle" nowrap
+								bordercolor=none><div align="center">
+									<p>评分人</p>
+								</div></td>														
 						</tr>
 						</table>
 						</td>
@@ -145,7 +149,7 @@ function tijiao()
 			        <td style="padding-left:18px">
 			         <div id="scroll" align="center" style="overflow-y: scroll; overflow-x: hidden;height:400px">
 					<table  align="center" style="border: 0px; " cellpadding="0" cellspacing="2" >
-					<c:forEach items="${listnorm}" var="kb" varStatus="status">
+					<c:forEach items="${list}" var="kb" varStatus="status">
 					<tr class="btbj" id="hang" style="height:25px">
 								
 								<td  width="50px" height="25" align="center" valign="middle" nowrap><div
@@ -165,6 +169,8 @@ function tijiao()
 										align="center"><input id="${kb.id}" type="checkbox"  name="norm" value="${kb.id}" /></div></td>	
 								<td width="65px" height="25" align="center" valign="middle" nowrap><div
 										align="center"><input id="${kb.id+100000}" style="width:50px" type="text" name="normprop"  onkeyup="this.value=value.replace(/[^\d.]/g,'')"  onafterpaste="this.value=value.replace(/[^\d.]/g,'')"/></div></td>			
+				     			<td width="75px" height="25" align="center" valign="middle" nowrap><div
+										align="left">下拉评分人</div></td>
 				     </tr>
 					</c:forEach>
 								</table>

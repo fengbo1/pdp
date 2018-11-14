@@ -37,6 +37,9 @@
 		<action name="beforeposadd" class="pdp.pos.action.BeforePosAdd">
 			<result name="success">/page/position/posadd.jsp</result>
 		</action>
+		<action name="posshow" class="pdp.pos.action.PosShow">
+			<result name="success">/page/position/posdetail.jsp</result>
+		</action>
 	</package>
 	
 </struts>    

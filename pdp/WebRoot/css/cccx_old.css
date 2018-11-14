@@ -15,9 +15,9 @@ body{
 
 .b4,.b4b{height:2px;margin:0 1px;}
 
-.d1{background:#ffffff;}  /*瀹氫箟 鍦嗗姬鍨嬭儗鏅殑棰滆壊*/
+.d1{background:#ffffff;}  /*定义 圆弧型背景的颜色*/
 
-.k {height:215px;}
+.k {height:215px;} /*定义每个圆弧形块的高度*/
 .k2 {height:320px;}
 .k3 {height:635px;}
 .k4{height:90px}
@@ -25,14 +25,14 @@ body{
 	padding: 0px;
 	left: 0px;
 	top: 0px;
-	width: 1415px;
+	width: 1215px;
 	height: auto;
 	border: 0px solid #0033FF;
 	background-color: #ffffff
 }
 #top {
 	height: 65px;
-	width: 1400px;
+	width: 1200px;
 	left: 17px;
 	top: 26px;
 	padding-left:10px;
@@ -41,12 +41,12 @@ body{
 .x_beijing{
 	margin: 0px;
 	padding: 0px;
-	width: 1415px;
+	width: 1215px;
 	height: 650px;
 	background-color: #0066B3;
 }
 
-/*鐎电懓鍨悰銊﹀瘻闁筋喗澧嶉崷鈥旾V閺嶅洨顒风�姘疅*/
+/*瀵瑰垪琛ㄦ寜閽墍鍦―IV鏍囩瀹氫箟*/
 .x_anniu
 	{
 	float: left;
@@ -59,11 +59,11 @@ body{
 	text-align: center;
 	
 }
-/*鐠哄疇娴嗘い鐢告桨閺嶇厧绱＄�姘疅*/
+/*璺宠浆椤甸潰鏍煎紡瀹氫箟*/
 .x_xianshi
 	{
 	float: left;
-	width: 1230px;
+	width: 1030px;
 	margin: 0px;
 	padding: 0px;
 	margin-top: 5px;
@@ -75,16 +75,16 @@ iframe{padding:0px}
 	margin: 0px;
 	padding: 0px;
 	margin-top: 0px;
-	padding-top: 0px;
-	margin-left: 0px;
-	width: 1230px;
+	padding-top: 3px;
+	margin-left: 5px;
+	width: 1000px;
 	height: 629px;
 	border: ;
 	
 }
 ul{margin:0;padding:0;} 
 
-/*閺夊啴妾洪柊宥囩枂鐞涖劑銆夐棃銏ｃ�閺嶅吋鐗稿蹇撶暰娑�/
+/*鏉冮檺閰嶇疆琛ㄩ〉闈㈣〃鏍兼牸寮忓畾涔*/
 .x_b_qxpz{
 	border-collapse: collapse;
 	margin: 0px;

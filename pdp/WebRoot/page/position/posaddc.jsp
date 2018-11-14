@@ -88,8 +88,8 @@ function tijiao()
   </head>
   
   <body>
-  ${daohang}
-  <form action="posaddb.action" method="post" name="fm1">
+   <b style="color:red">${message}</b>
+  <form action="posaddc.action" method="post" name="fm1">
 					<table height="80" align="center" cellpadding="0" cellspacing="2" >				
 					<tr>
 							 <td
@@ -145,7 +145,7 @@ function tijiao()
 			        <td style="padding-left:18px">
 			         <div id="scroll" align="center" style="overflow-y: scroll; overflow-x: hidden;height:400px">
 					<table  align="center" style="border: 0px; " cellpadding="0" cellspacing="2" >
-					<c:forEach items="${listnorm}" var="kb" varStatus="status">
+					<c:forEach items="${list}" var="kb" varStatus="status">
 					<tr class="btbj" id="hang" style="height:25px">
 								
 								<td  width="50px" height="25" align="center" valign="middle" nowrap><div
