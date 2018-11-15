@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import pdp.userinfo.dao.RaterDAO;
 import pdp.userinfo.dao.UserInfoDAO;
 import pdp.userinfo.pojo.Rater;
 
@@ -83,14 +84,20 @@ public class FindRater {
 	}
 	public String execute() throws Exception
 	{
-		String sql = "";
-		UserInfoDAO uidao = new UserInfoDAO();
+		RaterDAO rdao = new RaterDAO();
 		Session session = HibernateSessionFactory.getSession();
 		Transaction trans = session.beginTransaction();
 		try {
-			
-			
-			
+			lista = rdao.findAllNamesToList("1", "in");
+			listb = rdao.findAllNamesToList("2", "in");
+			listc = rdao.findAllNamesToList("3", "in");
+			listd = rdao.findAllNamesToList("4", "in");
+			liste = rdao.findAllNamesToList("5", "in");
+			resta = rdao.findAllNamesToString("1", "not in");
+			restb = rdao.findAllNamesToString("2", "not in");
+			restc = rdao.findAllNamesToString("3", "not in");
+			restd = rdao.findAllNamesToString("4", "not in");
+			reste = rdao.findAllNamesToString("5", "not in");
 			
 		} catch (Exception e) {
 		

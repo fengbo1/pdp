@@ -305,11 +305,13 @@ public class UserInfoDAO extends BaseHibernateDAO  {
 	        	 for(int i=0;i<list.size();i++)
 		         {
 	        		 UserInfo ui = list.get(i);
-		        	 peoples+=
+		        	 peoples+=ui.getUsername();
+		        	 peoples+=",";
 		         }
+	        	 peoples = peoples.substring(0, peoples.length()-1);
 	         }
 	         
-			 return queryObject.list();
+			 return peoples;
 		} catch (RuntimeException re) {
 			log.error("find all failed", re);
 			throw re;

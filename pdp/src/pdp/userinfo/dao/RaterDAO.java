@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import pdp.userinfo.pojo.Rater;
+import pdp.userinfo.pojo.UserInfo;
 
 /**
  	* A data access object (DAO) providing persistence and search support for Rater entities.
@@ -153,4 +154,49 @@ public class RaterDAO extends BaseHibernateDAO  {
             throw re;
         }
     }
+    /**
+     * 
+     * @param chu
+     * @param innot in 和 not in
+     *      * @return
+     */
+	public String findAllNamesToString(String chu,String innot) {
+		log.debug("finding all Rater instances");
+		try {
+			UserInfoDAO uidao = new UserInfoDAO();
+			String chupeople = uidao.findChushiToString(chu);
+			String peoples = "";
+			String queryString = "from Rater where name "+innot+" ('"+chupeople.replace(",", "','")+"')";
+	         Query queryObject = getSession().createQuery(queryString);
+	         List<Rater> list = queryObject.list();
+	         if(list.size()>0)
+	         {
+	        	 for(int i=0;i<list.size();i++)
+		         {
+	        		 Rater r = list.get(i);
+		        	 peoples+=r.getName();
+		        	 peoples+=",";
+		         }
+	        	 peoples = peoples.substring(0, peoples.length()-1);
+	         }
+	         return peoples;
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
+	public List findAllNamesToList(String chu,String innot) {
+		log.debug("finding all Rater instances");
+		try {
+			UserInfoDAO uidao = new UserInfoDAO();
+			String chupeople = uidao.findChushiToString(chu);
+			String peoples = "";
+			String queryString = "from Rater where name "+innot+" ('"+chupeople.replace(",", "','")+"')";
+	         Query queryObject = getSession().createQuery(queryString);
+	         return queryObject.list();
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
 }
